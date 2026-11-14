@@ -6,6 +6,7 @@ import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import jakarta.inject.Inject;
 import java.util.Objects;
 
 /** HTTP endpoints for reading student data. */
@@ -19,6 +20,7 @@ public final class StudentResource {
      *
      * @param repository student data source
      */
+    @Inject
     public StudentResource(StudentRepository repository) {
         this.repository = Objects.requireNonNull(repository);
     }
