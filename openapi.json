@@ -1,0 +1,84 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Studentų JAX-RS API",
+    "version": "1.0.0",
+    "description": "OpenAPI atitikmuo sugeneruotam Jersey WADL. WADL neturi modelių schemų, todėl jos papildytos pagal Java klases."
+  },
+  "servers": [
+    { "url": "http://localhost:8081/api" }
+  ],
+  "paths": {
+    "/students": {
+      "get": {
+        "summary": "Visi studentai",
+        "operationId": "listStudents",
+        "responses": {
+          "200": {
+            "description": "Studentų sąrašas",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/Student" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/students/{id}": {
+      "get": {
+        "summary": "Vienas studentas",
+        "operationId": "getStudentById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "integer", "format": "int32" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Rastas studentas",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Student" }
+              }
+            }
+          },
+          "404": { "description": "Studentas nerastas" }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Subject": {
+        "type": "object",
+        "required": ["name", "credits"],
+        "properties": {
+          "name": { "type": "string", "example": "Matematika" },
+          "credits": { "type": "integer", "format": "int32", "example": 6 }
+        }
+      },
+      "Student": {
+        "type": "object",
+        "required": ["id", "name", "average", "active", "group", "subjects"],
+        "properties": {
+          "id": { "type": "integer", "format": "int32", "example": 1 },
+          "name": { "type": "string", "example": "Aistė" },
+          "average": { "type": "number", "format": "float", "example": 8.7 },
+          "active": { "type": "boolean", "example": true },
+          "group": { "type": "string", "minLength": 1, "maxLength": 1, "example": "A" },
+          "subjects": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/Subject" }
+          }
+        }
+      }
+    }
+  }
+}

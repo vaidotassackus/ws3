@@ -1,0 +1,41 @@
+plugins {
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.glassfish.jersey.containers:jersey-container-grizzly2-http:3.1.10'
+    implementation 'org.glassfish.jersey.inject:jersey-hk2:3.1.10'
+    implementation 'org.glassfish.jersey.media:jersey-media-json-jackson:3.1.10'
+    implementation 'org.glassfish.jaxb:jaxb-runtime:4.0.5'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.13.1'
+    testImplementation 'org.mockito:mockito-core:5.18.0'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+application {
+    mainClass = 'lt.example.studentapi.Application'
+}
+
+tasks.named('test', Test) {
+    useJUnitPlatform()
+}
+
+tasks.named('javadoc', Javadoc) {
+    destinationDir = file('docs/javadoc')
+    options.encoding = 'UTF-8'
+    options.addStringOption('Xdoclint:all', '-quiet')
+}
+
+tasks.named('check') {
+    dependsOn tasks.named('javadoc')
+}

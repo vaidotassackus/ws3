@@ -1,0 +1,24 @@
+{
+  "info": {
+    "name": "Studentų JAX-RS API",
+    "description": "Importuokite į Postman ir paleiskite serverį prieš siunčiant užklausas.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8081/api" }
+  ],
+  "item": [
+    {
+      "name": "Visi studentai",
+      "request": { "method": "GET", "url": "{{baseUrl}}/students" }
+    },
+    {
+      "name": "Studentas 1",
+      "request": { "method": "GET", "url": "{{baseUrl}}/students/1" }
+    },
+    {
+      "name": "Nerastas studentas",
+      "request": { "method": "GET", "url": "{{baseUrl}}/students/999" }
+    }
+  ]
+}
