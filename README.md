@@ -2,8 +2,8 @@
 
 ## Instrukcijos (`Projects` aplanke)
 
-- [Greita IntelliJ IDEA instrukcija](../README.md)
-- [Išsamus lietuviškas paaiškinimas](../PAAISKINIMAS-LT.md)
+- Greita IntelliJ IDEA instrukcija: [vietinis failas](../README.md) · [GitHub kopija](https://github.com/vaidotassackus/ws3/blob/643fc22/README.md)
+- Išsamus lietuviškas paaiškinimas: [vietinis failas](../PAAISKINIMAS-LT.md) · [GitHub kopija](https://github.com/vaidotassackus/ws3/blob/643fc22/PAAISKINIMAS-LT.md)
 
 ## Projekto failai
 
